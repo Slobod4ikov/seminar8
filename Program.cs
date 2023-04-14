@@ -29,14 +29,18 @@ int [,] CreateArray(int m, int n){
         Console.WriteLine();
     }return array;
 }
-int [,] matrix3 = new int [m,h];
-for (int i = 0; i < n-1; i++){
-    for (int j = 0; j < h-1; j++){
-        int temp = 0;
-        for (int k = 0; k < h-1; k++){
-            temp= temp+matrix1[i,k]*matrix2[k,i];
-    }
-    matrix3[i,j]= temp;
-    Console.Write($"{matrix3[i,j]} ");}
-    Console.WriteLine();
+int [,] matrix3 = new int [m,h]; 
+    for (int r = 0; r < matrix3.GetLength(0); r++){
+        for (int c = 0; c < matrix3.GetLength(1); c++){
+        int Sum = 0;
+        int Count = 0;
+        while(Count<n){
+            Sum=Sum+matrix1[r,Count]*matrix2[Count,c];
+            ++Count;
+        }
+        matrix3 [r,c]=Sum;
+        Console.Write($"{matrix3[r,c]} ");
+        }
+        Console.WriteLine();
 }
+
